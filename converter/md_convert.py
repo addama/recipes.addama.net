@@ -1,6 +1,5 @@
 import sys
 import glob
-from os import getcwd
 from os.path import basename, splitext
 from datetime import datetime
 
@@ -9,8 +8,7 @@ input_dir = '/markdown/'
 output_dir = '/recipes/'
 tags_dir = '/tags/'
 css_file = '/inc/style.css'
-# 3.6+ string formatting
-# files = glob.glob(f'.{input_dir}*.md')
+# files = glob.glob(f'.{input_dir}*.md') # 3.6+ string formatting
 files = glob.glob('.'+input_dir+'*.md')
 default_title = 'Recipe'
 title_suffix = ' | addama.net'
@@ -58,7 +56,7 @@ def build_recipe_page(title, tags, steps):
 		'<div id="tags">',
 		'<span id="tagsLabel">Tags</span>',
 	]
-	# tags
+
 	for tag in tags:
 		html.append('<a href="../tags/'+tag+'.htm" title="Recipes tagged as: '+tag+'">'+tag+'</a>')
 
@@ -75,7 +73,6 @@ def build_tag_page(tag, uris):
 		'<ul>'
 	]
 
-	# build files list
 	for uri in uris:
 		html.append('<li><a href="..'+output_dir+uri+'">'+titles_by_uri[uri]+'</a></li>')
 
@@ -110,7 +107,6 @@ def build_index_page():
 
 	return build_base_page('Recipes', html, True)
 
-
 def process_file(file):
 	filename = splitext(basename(file))[0]+'.htm'
 	title = default_title
@@ -120,13 +116,12 @@ def process_file(file):
 	steps = []
 
 	switch = {
-		'#': lambda a: '<h1>'+a[1]+'</h1>',
-		'##': lambda a: '<h2><a id="'+slugify(a[1])+'"></a>'+a[1]+'</h2>',
-		'###': lambda a: '<h3><a id="'+slugify(a[1])+'"></a>'+a[1]+'</h3>',
-		'&&': lambda a: '<h1>'+a[1]+'</h1>',
-		'-': lambda a: '<li>'+a[1]+'</li>',
-		'1.': lambda a: '<li>'+a[1]+'</li>',
-		'!#': lambda a: '\n'.join([
+		'#':	lambda a: '<h1>'+a[1]+'</h1>',
+		'##':	lambda a: '<h2><a id="'+slugify(a[1])+'"></a>'+a[1]+'</h2>',
+		'###':	lambda a: '<h3><a id="'+slugify(a[1])+'"></a>'+a[1]+'</h3>',
+		'-':	lambda a: '<li>'+a[1]+'</li>',
+		'1.':	lambda a: '<li>'+a[1]+'</li>',
+		'!#':	lambda a: '\n'.join([
 			'<h1>',
 			'<span id="decoration">🙞</span>',
 			'<span id="recipeTitle">'+a[1]+'</span>',
@@ -155,8 +150,7 @@ def process_file(file):
 					tags_by_uri[filename] = tags
 					
 					for tag in tags:
-						if tag not in uris_by_tag:
-							uris_by_tag[tag] = []
+						if tag not in uris_by_tag: uris_by_tag[tag] = []
 						uris_by_tag[tag].append(filename)
 				else:
 					if (split[0] == '-' and not is_unordered_list): 
@@ -176,22 +170,23 @@ def process_file(file):
 		if (is_unordered_list): steps.append('</ul>')
 	return [ filename, build_recipe_page(title, tags, steps) ]
 
+def write_file(filename, html):
+	with open(filename, 'w') as f:
+		f.write('\n'.join(html))
+
 # Process the markdown files
 for file in files:
 	filename, html = process_file(file)
 	print(filename, len(html))
-	with open('.'+output_dir+filename, 'w') as f:
-		f.write('\n'.join(html))
+	write_file('.'+output_dir+filename, html)
 
 # Build the tag pages
 for tag in uris_by_tag:
 	html = build_tag_page(tag, uris_by_tag[tag])
 	print(tag, len(html))
-	with open('.'+tags_dir+tag+'.htm', 'w') as f:
-		f.write('\n'.join(html))
+	write_file('.'+tags_dir+tag+'.htm', html)
 
 # Build the index page
 html = build_index_page()
-print('./index.htm', len(html))
-with open('./index.htm', 'w') as f:
-	f.write('\n'.join(html))
+print('index.htm', len(html))
+write_file('./index.htm', html)
