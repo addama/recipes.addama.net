@@ -91,10 +91,6 @@ h1 .decoration {
 	line-height: 1em;
 }
 
-#tags .decoration {
-	pointer-events: none;
-}
-
 #tags a {
 	flex-basis: 10%;
 	text-align: center;
@@ -127,14 +123,6 @@ a, a:visited {
 a:hover, a:active {
 	color: white;
 	text-decoration: underline;
-}
-
-h1 .decoration:hover {
-	text-decoration: none;
-	color: darkslateblue;
-	/* Future un-prefixed compatibility */
-	text-stroke: 3px lightblue;
-	-webkit-text-stroke: 3px lightblue;
 }
 
 footer {
