@@ -10,8 +10,8 @@ input_dir = '/markdown/'
 output_dir = '/recipes/'
 tags_dir = '/tags/'
 css_file = '/inc/style.css'
-print(f'.{input_dir}*.md')
-files = glob.glob(f'.{input_dir}*.md')
+# files = glob.glob(f'.{input_dir}*.md')
+files = glob.glob('.'+input_dir+'*.md')
 default_title = 'Recipe'
 title_suffix = ' | addama.net'
 tags_by_uri = {}
