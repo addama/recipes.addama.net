@@ -50,6 +50,10 @@ h1#tagTitle {
 	padding-left: 0.5em;
 }
 
+h2 {
+	z-index: 100;
+}
+
 .decoration {
 	font-family: 'The Nautigal', cursive;
 	font-size: 4em;
