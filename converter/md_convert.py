@@ -5,12 +5,12 @@ from os.path import basename, splitext
 from datetime import datetime
 
 run_date = datetime.now()
-base_dir = getcwd()
+# base_dir = getcwd()
 input_dir = '/markdown/'
 output_dir = '/recipes/'
 tags_dir = '/tags/'
 css_file = '/inc/style.css'
-files = glob.glob(f'{base_dir}{input_dir}*.md')
+files = glob.glob(f'.{input_dir}*.md')
 default_title = 'Recipe'
 title_suffix = ' | addama.net'
 tags_by_uri = {}
@@ -173,18 +173,18 @@ def process_file(file):
 for file in files:
 	filename, html = process_file(file)
 	print(filename, len(html))
-	with open(f'{base_dir}{output_dir}{filename}', 'w') as f:
+	with open(f'.{output_dir}{filename}', 'w') as f:
 		f.write('\n'.join(html))
 
 # Build the tag pages
 for tag in uris_by_tag:
 	html = build_tag_page(tag, uris_by_tag[tag])
 	print(tag, len(html))
-	with open(f'{base_dir}{tags_dir}{tag}.htm', 'w') as f:
+	with open(f'.{tags_dir}{tag}.htm', 'w') as f:
 		f.write('\n'.join(html))
 
 # Build the index page
 html = build_index_page()
-print(f'{base_dir}/index.htm', len(html))
-with open(f'{base_dir}/index.htm', 'w') as f:
+print(f'./index.htm', len(html))
+with open(f'./index.htm', 'w') as f:
 	f.write('\n'.join(html))
