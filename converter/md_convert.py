@@ -5,7 +5,6 @@ from os.path import basename, splitext
 from datetime import datetime
 
 run_date = datetime.now()
-# base_dir = getcwd()
 input_dir = '/markdown/'
 output_dir = '/recipes/'
 tags_dir = '/tags/'
@@ -39,7 +38,7 @@ def build_base_page(title, content, isIndex=False):
 	html += [
 		'</main>',
 		'<footer>',
-		'<span class="generatedDate">Generated: '+str(run_date)+'</span>',
+		'<a id="repoLink" href="https://github.com/addama/recipes.addama.net">Github</a> | <span class="generatedDate">Generated: '+str(run_date)+'</span>',
 		'</footer>',
 		'</body>',
 		'</html>'
@@ -51,7 +50,7 @@ def build_recipe_page(title, tags, steps):
 	html = steps
 	html += [
 		'<div id="tags">',
-		'<span class="decoration">Tags</span>',
+		'<span id="tagsLabel">Tags</span>',
 	]
 	# tags
 	for tag in tags:

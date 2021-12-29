@@ -50,26 +50,30 @@ h1#tagTitle {
 	padding-left: 0.5em;
 }
 
-.decoration {
-	font-family: 'The Nautigal', cursive;
-	font-size: 4em;
+#tagsLabel, .decoration {
 	line-height: 0.1em;
-	color: lightblue;
-	text-shadow: 0 0 15px rgba(0,0,0,0.9);
 	transform: rotate(-10deg);
 	pointer-events: none;
-}
-
-h1 .decoration {
-	font-size: 5em;
-	line-height: 0.1em;
+	text-shadow: 0 0 15px rgba(0,0,0,0.9);
 	text-align: center;
 	color: lightblue;
+}
+
+#tagsLabel {
+	font-family: 'The Nautigal', cursive;
+	font-size: 4em;
+	color: lightblue;
+}
+
+.decoration {
+	font-size: 5em;
 	/* Future un-prefixed compatibility */
 	text-stroke: 3px #999;
 	-webkit-text-stroke: 3px #999;
 	flex-basis: 20%;
+	
 }
+
 
 #recipeTitle, #indexTitle, #tagTitle {
 	line-height: 1em;
