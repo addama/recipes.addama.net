@@ -2,7 +2,7 @@
 
 && soup, chicken, component, hot
 
-## Ingredients and stuff
+## Ingredients
 
 - 1 medium to large roasted chicken, whole, from the supermarket deli
 - 1 white onion
