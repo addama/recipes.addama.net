@@ -30,9 +30,9 @@ def build_base_page(title, content, isIndex=False):
 		'<meta generatedDate="'+str(run_date)+'" />',
 		# '<link rel="preconnect" href="https://fonts.googleapis.com">',
 		# '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
-		'<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=The+Nautigal:wght@700&display=swap">',
-		'<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@700&display=swap">',
-		'<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&display=swap">',
+		'<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=The+Nautigal:wght@700&display=swap" />',
+		'<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@700&display=swap" />',
+		'<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&display=swap" />',
 		'<link rel="stylesheet" href="'+css_location+css_file+'" />',
 		'<title>'+title+'</title>',
 		'</head>',
@@ -43,7 +43,7 @@ def build_base_page(title, content, isIndex=False):
 	html += [
 		'</main>',
 		'<footer>',
-		'<a id="repoLink" href="https://github.com/addama/recipes.addama.net">Github</a> | <span class="generatedDate">Generated: '+str(run_date)+'</span>',
+		'<a id="repoLink" href="https://github.com/addama/recipes.addama.net">Github</a> | <span class="generatedDate">Generated '+str(run_date)+'</span>',
 		'</footer>',
 		'</body>',
 		'</html>'
@@ -68,7 +68,8 @@ def build_recipe_page(title, tags, steps):
 def build_tag_page(tag, uris):
 	html = [
 		'<h1>',
-		'<span class="decoration">🙞</span>',
+		'<span class="decoration">&#128625;</span>',
+		# '<span class="decoration">🙞</span>',
 		'<span id="tagTitle">Tag: '+tag+'</span>',
 		'</h1>',
 		'<ul>'
@@ -85,7 +86,8 @@ def build_tag_page(tag, uris):
 def build_index_page():
 	html = [
 		'<h1>',
-		'<span class="decoration">🙞</span>',
+		'<span class="decoration">&#128625;</span>',
+		# '<span class="decoration">🙞</span>',
 		'<span id="indexTitle">Recipes</span>',
 		'</h1>'
 		'<h2>Tags</h2>',
@@ -127,7 +129,7 @@ def process_file(file):
 		'1.': lambda a: '<li>'+a[1]+'</li>',
 		'!#': lambda a: '\n'.join([
 			'<h1>',
-			'<span class="decoration">🙞</span>',
+			'<span class="decoration">&#128625;</span>',
 			'<span id="recipeTitle">'+a[1]+'</span>',
 			'</h1>'
 		])
