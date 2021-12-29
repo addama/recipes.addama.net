@@ -116,7 +116,6 @@ def process_file(file):
 		'#': lambda a: f'<h1>{a[1]}</h1>',
 		'##': lambda a: f'<h2><a id="{slugify(a[1])}"></a>{a[1]}</h2>',
 		'###': lambda a: f'<h3><a id="{slugify(a[1])}"></a>{a[1]}</h3>',
-		'####': lambda a: f'<h4><a id="{slugify(a[1])}"></a>{a[1]}</h4>',
 		'&&': lambda a: f'<h1>{a[1]}</h1>',
 		'-': lambda a: f'<li>{a[1]}</li>',
 		'1.': lambda a: f'<li>{a[1]}</li>',
