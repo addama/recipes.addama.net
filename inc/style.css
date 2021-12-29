@@ -43,16 +43,11 @@ h1 {
 	line-height: 1em;
 	padding-right: 0.5em;
 	margin-bottom: 2em;
-	z-index: 0.4;
 }
 
 h1#tagTitle {
 	margin-bottom: 1em;
 	padding-left: 0.5em;
-}
-
-h2 {
-	z-index: 1.0;
 }
 
 .decoration {
@@ -62,6 +57,7 @@ h2 {
 	color: lightblue;
 	text-shadow: 0 0 15px rgba(0,0,0,0.9);
 	transform: rotate(-10deg);
+	pointer-events: none;
 }
 
 h1 .decoration {
@@ -73,7 +69,6 @@ h1 .decoration {
 	text-stroke: 3px #999;
 	-webkit-text-stroke: 3px #999;
 	flex-basis: 20%;
-	z-index: 0.5
 }
 
 #recipeTitle, #indexTitle, #tagTitle {
