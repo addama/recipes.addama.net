@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200;400;700&family=El+Messiri:wght@400;500;600;700&family=The+Nautigal:wght@700&display=swap');
+
+body {
+	background-color: #202124;
+	color: #e8eaed;
+	background: url(broken_noise.png);
+}
+
+main {
+	font-family: 'Crimson Pro', serif;
+	font-weight: 200;
+	width: 800px;
+	margin: 0 auto;
+	font-size: 1.5em;
+	padding-top: 10vh;
+	padding-bottom: 10vh;
+}
+
+ul, ol {
+	line-height: 1.44em;
+	margin: 0;
+}
+
+h1,h2,h3,h4 {
+	font-family: 'El Messiri', sans-serif;
+	margin-top: 1em;
+	margin-bottom: 0;
+	padding: 0;
+	font-weight: 700;
+	color: #fff;
+}
+
+h1 {
+	background-color: #444;
+	background-image: linear-gradient(to bottom right, transparent, #444), url(noise.svg);
+	width: 100%;
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	align-content: center;
+	padding: 5px;
+	border-radius: 5px;
+	line-height: 1em;
+	padding-right: 0.5em;
+	margin-bottom: 2em;
+}
+
+h1#tagTitle {
+	margin-bottom: 1em;
+	padding-left: 0.5em;
+}
+
+.decoration {
+	font-family: 'The Nautigal', cursive;
+	font-size: 4em;
+	line-height: 0.1em;
+	color: lightblue;
+	text-shadow: 0 0 15px rgba(0,0,0,0.9);
+	transform: rotate(-10deg);
+}
+
+h1 .decoration {
+	font-size: 5em;
+	line-height: 0.1em;
+	text-align: center;
+	color: lightblue;
+	/* Future un-prefixed compatibility */
+	text-stroke: 3px #999;
+	-webkit-text-stroke: 3px #999;
+	flex-basis: 20%;
+}
+
+#recipeTitle, #indexTitle, #tagTitle {
+	line-height: 1em;
+	flex-grow: 3;
+	text-align: right;
+}
+
+#tags {
+	background-color: #444;
+	background-image: linear-gradient(to bottom right, transparent, #444), url(noise.svg);
+	color: #eee;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding: 5px;
+	margin-top: 5em;
+	border-radius: 5px;
+	line-height: 1em;
+}
+
+#tags .decoration {
+	pointer-events: none;
+}
+
+#tags a {
+	flex-basis: 10%;
+	text-align: center;
+}
+
+#indexRecipeList, #indexTagList {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-content: space-around;
+	line-height: 2em;
+}
+
+#indexRecipeList a {
+	flex-basis: 32%;
+	text-align: center;
+}
+
+#indexTagList a {
+	flex-basis: 18%;
+	text-align: center;
+}
+
+a, a:visited {
+	text-decoration: none;
+	color: lightblue;
+}
+
+a:hover, a:active {
+	color: white;
+	text-decoration: underline;
+}
+
+h1 .decoration:hover {
+	text-decoration: none;
+	color: darkslateblue;
+	/* Future un-prefixed compatibility */
+	text-stroke: 3px lightblue;
+	-webkit-text-stroke: 3px lightblue;
+}
+
+footer {
+	font-size: smaller;
+	width: 100%;
+	text-align: right;
+}
+
+li {
+	padding-bottom: 1em;
+	line-height: 1em;
+}
