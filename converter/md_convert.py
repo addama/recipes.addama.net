@@ -10,6 +10,7 @@ input_dir = '/markdown/'
 output_dir = '/recipes/'
 tags_dir = '/tags/'
 css_file = '/inc/style.css'
+# 3.6+ string formatting
 # files = glob.glob(f'.{input_dir}*.md')
 files = glob.glob('.'+input_dir+'*.md')
 default_title = 'Recipe'
@@ -27,9 +28,9 @@ def build_base_page(title, content, isIndex=False):
 		'<html>',
 		'<head>',
 		'<meta charset="UTF-8" />',
-		f'<meta generatedDate="{run_date}" />',
-		f'<link rel="stylesheet" href="{css_location}{css_file}" />',
-		f'<title>{title}</title>',
+		'<meta generatedDate="'+run_date+'" />',
+		'<link rel="stylesheet" href="'+css_location+css_file+'" />',
+		'<title>'+title+'</title>',
 		'</head>',
 		'<body>',
 		'<main>'
@@ -38,7 +39,7 @@ def build_base_page(title, content, isIndex=False):
 	html += [
 		'</main>',
 		'<footer>',
-		f'<span class="generatedDate">Generated: {run_date}</span>',
+		'<span class="generatedDate">Generated: '+run_date+'</span>',
 		'</footer>',
 		'</body>',
 		'</html>'
@@ -54,7 +55,7 @@ def build_recipe_page(title, tags, steps):
 	]
 	# tags
 	for tag in tags:
-		html.append(f'<a href="../tags/{tag}.htm" title="Recipes tagged as: {tag}">{tag}</a>')
+		html.append('<a href="../tags/'+tag+'.htm" title="Recipes tagged as: '+tag+'">'+tag+'</a>')
 
 	html += [ '</div>' ]
 
@@ -64,18 +65,18 @@ def build_tag_page(tag, uris):
 	html = [
 		'<h1>',
 		'<a class="decoration" href="../" title="Back to index">🙞</a>',
-		f'<span id="tagTitle">Tag: {tag}</span>',
+		'<span id="tagTitle">Tag: '+tag+'</span>',
 		'</h1>',
 		'<ul>'
 	]
 
 	# build files list
 	for uri in uris:
-		html.append(f'<li><a href="..{output_dir}{uri}">{titles_by_uri[uri]}</a></li>')
+		html.append('<li><a href="..'+output_dir+uri+'">'+titles_by_uri[uri]+'</a></li>')
 
 	html += [ '</ul>' ]
 
-	return build_base_page(f'Recipes tagged as {tag}', html)
+	return build_base_page('Recipes tagged as '+tag, html)
 
 def build_index_page():
 	html = [
@@ -88,7 +89,7 @@ def build_index_page():
 	]
 
 	for tag in uris_by_tag:
-		html.append(f'<a href="./tags/{tag}.htm" title="Recipes tagged as: {tag}">{tag}</a>')
+		html.append('<a href="./tags/'+tag+'.htm" title="Recipes tagged as: '+tag+'">'+tag+'</a>')
 
 	html += [
 		'</div>',
@@ -98,7 +99,7 @@ def build_index_page():
 
 	for uri in titles_by_uri:
 		title = titles_by_uri[uri]
-		html.append(f'<a href=".{output_dir}{uri}" title="{title}">{title}</a>')
+		html.append('<a href=".'+output_dir+uri+'" title="'+title+'">'+title+'</a>')
 
 	html += [ '</div>' ]
 
@@ -106,7 +107,7 @@ def build_index_page():
 
 
 def process_file(file):
-	filename = f'{splitext(basename(file))[0]}.htm'
+	filename = splitext(basename(file))[0]+'.htm'
 	title = default_title
 	is_unordered_list = False
 	is_ordered_list = False
@@ -114,16 +115,16 @@ def process_file(file):
 	steps = []
 
 	switch = {
-		'#': lambda a: f'<h1>{a[1]}</h1>',
-		'##': lambda a: f'<h2><a id="{slugify(a[1])}"></a>{a[1]}</h2>',
-		'###': lambda a: f'<h3><a id="{slugify(a[1])}"></a>{a[1]}</h3>',
-		'&&': lambda a: f'<h1>{a[1]}</h1>',
-		'-': lambda a: f'<li>{a[1]}</li>',
-		'1.': lambda a: f'<li>{a[1]}</li>',
+		'#': lambda a: '<h1>'+a[1]+'</h1>',
+		'##': lambda a: '<h2><a id="'+slugify(a[1])+'"></a>'+a[1]+'</h2>',
+		'###': lambda a: '<h3><a id="'+slugify(a[1])+'"></a>'+a[1]+'</h3>',
+		'&&': lambda a: '<h1>'+a[1]+'</h1>',
+		'-': lambda a: '<li>'+a[1]+'</li>',
+		'1.': lambda a: '<li>'+a[1]+'</li>',
 		'!#': lambda a: '\n'.join([
 			'<h1>',
 			'<a class="decoration" href="../" title="Back to index">🙞</a>',
-			f'<span id="recipeTitle">{a[1]}</span>',
+			'<span id="recipeTitle">'+a[1]+'</span>',
 			'</h1>'
 		])
 	}
@@ -165,7 +166,7 @@ def process_file(file):
 					elif (split[0] != '1.' and is_ordered_list):
 						is_ordered_list = False
 						steps.append('</ol>')
-					steps.append(switch.get(split[0], lambda a: f'<p>{" ".join(a)}</p>')(split))
+					steps.append(switch.get(split[0], lambda a: '<p>'+" ".join(a)+'</p>')(split))
 		if (is_ordered_list): steps.append('</ol>')
 		if (is_unordered_list): steps.append('</ul>')
 	return [ filename, build_recipe_page(title, tags, steps) ]
@@ -174,18 +175,18 @@ def process_file(file):
 for file in files:
 	filename, html = process_file(file)
 	print(filename, len(html))
-	with open(f'.{output_dir}{filename}', 'w') as f:
+	with open('.'+output_dir+filename, 'w') as f:
 		f.write('\n'.join(html))
 
 # Build the tag pages
 for tag in uris_by_tag:
 	html = build_tag_page(tag, uris_by_tag[tag])
 	print(tag, len(html))
-	with open(f'.{tags_dir}{tag}.htm', 'w') as f:
+	with open('.'+tags_dir+tag+'.htm', 'w') as f:
 		f.write('\n'.join(html))
 
 # Build the index page
 html = build_index_page()
-print(f'./index.htm', len(html))
-with open(f'./index.htm', 'w') as f:
+print('./index.htm', len(html))
+with open('./index.htm', 'w') as f:
 	f.write('\n'.join(html))
