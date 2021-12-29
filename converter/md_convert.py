@@ -28,7 +28,7 @@ def build_base_page(title, content, isIndex=False):
 		'<html>',
 		'<head>',
 		'<meta charset="UTF-8" />',
-		'<meta generatedDate="'+run_date+'" />',
+		'<meta generatedDate="'+str(run_date)+'" />',
 		'<link rel="stylesheet" href="'+css_location+css_file+'" />',
 		'<title>'+title+'</title>',
 		'</head>',
@@ -39,7 +39,7 @@ def build_base_page(title, content, isIndex=False):
 	html += [
 		'</main>',
 		'<footer>',
-		'<span class="generatedDate">Generated: '+run_date+'</span>',
+		'<span class="generatedDate">Generated: '+str(run_date)+'</span>',
 		'</footer>',
 		'</body>',
 		'</html>'
