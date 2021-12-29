@@ -1,4 +1,8 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=El+Messiri:wght@700&family=The+Nautigal:wght@700&display=swap'); */
+@font-face {
+/* Symbola-AjYx */
+	font-family: Symbola;
+	src: url(Symbola-AjYx.ttf);
+}
 
 body {
 	background-color: #202124;
@@ -67,7 +71,7 @@ h1#tagTitle {
 }
 
 .decoration {
-	font-family: default;
+	font-family: Symbola, default;
 	font-size: 4em;
 	/* Future un-prefixed compatibility */
 	/* text-stroke: 3px #999; */

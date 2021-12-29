@@ -68,7 +68,7 @@ def build_recipe_page(title, tags, steps):
 def build_tag_page(tag, uris):
 	html = [
 		'<h1>',
-		'<span class="decoration">&#128625;</span>',
+		'<span class="decoration">🙞</span>',
 		# '<span class="decoration">🙞</span>',
 		'<span id="tagTitle">Tag: '+tag+'</span>',
 		'</h1>',
@@ -86,7 +86,7 @@ def build_tag_page(tag, uris):
 def build_index_page():
 	html = [
 		'<h1>',
-		'<span class="decoration">&#128625;</span>',
+		'<span class="decoration">🙞</span>',
 		# '<span class="decoration">🙞</span>',
 		'<span id="indexTitle">Recipes</span>',
 		'</h1>'
@@ -129,7 +129,7 @@ def process_file(file):
 		'1.': lambda a: '<li>'+a[1]+'</li>',
 		'!#': lambda a: '\n'.join([
 			'<h1>',
-			'<span class="decoration">&#128625;</span>',
+			'<span class="decoration">🙞</span>',
 			'<span id="recipeTitle">'+a[1]+'</span>',
 			'</h1>'
 		])
