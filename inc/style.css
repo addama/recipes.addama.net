@@ -48,7 +48,7 @@ h1#tagTitle {
 	padding-left: 0.5em;
 }
 
-#tagsLabel, .decoration {
+#tagsLabel, #decoration {
 	line-height: 0.1em;
 	transform: rotate(-10deg);
 	pointer-events: none;
@@ -64,7 +64,7 @@ h1#tagTitle {
 	color: lightblue;
 }
 
-.decoration {
+#decoration {
 	font-size: 4em;
 	/* Future un-prefixed compatibility */
 	/* text-stroke: 3px #999; */
@@ -72,7 +72,6 @@ h1#tagTitle {
 	flex-basis: 20%;
 	
 }
-
 
 #recipeTitle, #indexTitle, #tagTitle {
 	line-height: 1em;

@@ -26,7 +26,7 @@ def build_base_page(title, content, isIndex=False):
 		'<!DOCTYPE html>',
 		'<html>',
 		'<head>',
-		'<meta charset="UTF-8" />',
+		'<meta charset="utf-8" />',
 		'<meta generatedDate="'+str(run_date)+'" />',
 		# '<link rel="preconnect" href="https://fonts.googleapis.com">',
 		# '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
@@ -45,6 +45,7 @@ def build_base_page(title, content, isIndex=False):
 		'<footer>',
 		'<a id="repoLink" href="https://github.com/addama/recipes.addama.net">Github</a> | <span class="generatedDate">Generated '+str(run_date)+'</span>',
 		'</footer>',
+		'<script type="text/javascript" src="'+css_location+'/inc/change_decoration.js"></script>',
 		'</body>',
 		'</html>'
 	]
@@ -68,8 +69,7 @@ def build_recipe_page(title, tags, steps):
 def build_tag_page(tag, uris):
 	html = [
 		'<h1>',
-		'<span class="decoration">🙞</span>',
-		# '<span class="decoration">🙞</span>',
+		'<span id="decoration">🙞</span>',
 		'<span id="tagTitle">Tag: '+tag+'</span>',
 		'</h1>',
 		'<ul>'
@@ -86,8 +86,7 @@ def build_tag_page(tag, uris):
 def build_index_page():
 	html = [
 		'<h1>',
-		'<span class="decoration">🙞</span>',
-		# '<span class="decoration">🙞</span>',
+		'<span id="decoration">🙞</span>',
 		'<span id="indexTitle">Recipes</span>',
 		'</h1>'
 		'<h2>Tags</h2>',
@@ -129,7 +128,7 @@ def process_file(file):
 		'1.': lambda a: '<li>'+a[1]+'</li>',
 		'!#': lambda a: '\n'.join([
 			'<h1>',
-			'<span class="decoration">🙞</span>',
+			'<span id="decoration">🙞</span>',
 			'<span id="recipeTitle">'+a[1]+'</span>',
 			'</h1>'
 		])
