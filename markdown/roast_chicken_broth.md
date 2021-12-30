@@ -1,6 +1,6 @@
 # Roast Chicken Broth
 
-&& soup, chicken, component, hot
+&& soup, chicken, component, warm
 
 ## Ingredients
 
