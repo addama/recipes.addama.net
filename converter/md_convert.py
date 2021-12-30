@@ -109,11 +109,8 @@ def build_index_page():
 	return build_base_page('Recipes', html, True)
 
 def convert_fractions(line):
-	modified = re.sub('1\/2', '&frac12;', line)
-	modified = re.sub('1\/4', '&frac14;', modified)
-	modified = re.sub('1\/3', '&frac13;', modified)
-	modified = re.sub('2\/3', '&frac23;', modified)
-	modified = re.sub('3\/4', '&frac34;', modified)
+	# Common fractions symbol replacement
+	modified = re.sub('(\d)\/(\d)', r'&frac\1\2;', line)
 	return modified
 
 def process_file(file):
@@ -150,7 +147,6 @@ def process_file(file):
 					title = split[1]
 					titles_by_uri[filename] = title
 					split[0] = '!#'
-
 				# Deal with the metadata that doesn't get printed, then
 				# with the printables
 				if (split[0] == '&&' and not len(tags)):
