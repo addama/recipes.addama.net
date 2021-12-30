@@ -174,7 +174,7 @@ def process_file(file):
 					elif (split[0] != '1.' and is_ordered_list):
 						is_ordered_list = False
 						steps.append('</ol>')
-					steps.append(switch.get(split[0], lambda a: '<p>'+" ".join(a)+'</p>')(split))
+					steps.append(switch.get(split[0], lambda a: '<p>'+convert_fractions(" ".join(a))+'</p>')(split))
 		if (is_ordered_list): steps.append('</ol>')
 		if (is_unordered_list): steps.append('</ul>')
 	return [ filename, build_recipe_page(title, tags, steps) ]
