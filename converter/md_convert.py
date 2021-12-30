@@ -1,5 +1,6 @@
 import sys
 import glob
+import re
 from os.path import basename, splitext
 from datetime import datetime
 
@@ -107,6 +108,14 @@ def build_index_page():
 
 	return build_base_page('Recipes', html, True)
 
+def convert_fractions(line):
+	modified = re.sub('1\/2', '&frac12;', line)
+	modified = re.sub('1\/4', '&frac14;', modified)
+	modified = re.sub('1\/3', '&frac13;', modified)
+	modified = re.sub('2\/3', '&frac23;', modified)
+	modified = re.sub('3\/4', '&frac34;', modified)
+	return modified
+
 def process_file(file):
 	filename = splitext(basename(file))[0]+'.htm'
 	title = default_title
@@ -119,8 +128,8 @@ def process_file(file):
 		'#':	lambda a: '<h1>'+a[1]+'</h1>',
 		'##':	lambda a: '<h2><a id="'+slugify(a[1])+'"></a>'+a[1]+'</h2>',
 		'###':	lambda a: '<h3><a id="'+slugify(a[1])+'"></a>'+a[1]+'</h3>',
-		'-':	lambda a: '<li>'+a[1]+'</li>',
-		'1.':	lambda a: '<li>'+a[1]+'</li>',
+		'-':	lambda a: '<li>'+convert_fractions(a[1])+'</li>',
+		'1.':	lambda a: '<li>'+convert_fractions(a[1])+'</li>',
 		'!#':	lambda a: '\n'.join([
 			'<h1>',
 			'<span id="decoration">🙞</span>',
