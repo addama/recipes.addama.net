@@ -111,10 +111,6 @@ def build_index_page():
 def process_line(line):
 	# Common fractions symbol replacement
 	modified = re.sub('(\d)\/(\d)', r'&frac\1\2;', line)
-	# italics
-	modified = re.sub('(\*{1}|_)(.*?)(\*{1}|_)', r'<em>\2</em>', modified)
-	# bold
-	modified = re.sub('(\*{2}|__)(.*?)(\*{2}|__)', r'<strong>\2</strong>', modified)
 	return modified
 
 def process_file(file):
