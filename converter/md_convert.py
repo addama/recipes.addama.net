@@ -108,9 +108,13 @@ def build_index_page():
 
 	return build_base_page('Recipes', html, True)
 
-def convert_fractions(line):
+def process_line(line):
 	# Common fractions symbol replacement
 	modified = re.sub('(\d)\/(\d)', r'&frac\1\2;', line)
+	# italics
+	modified = re.sub('\*{1}(\w+)\*{1}', r'<em>\1</em>', modified)
+	# bold
+	modified = re.sub('\*{2}(\w+)\*{2}', r'<strong>\1</strong>', modified)
 	return modified
 
 def process_file(file):
@@ -125,8 +129,8 @@ def process_file(file):
 		'#':	lambda a: '<h1>'+a[1]+'</h1>',
 		'##':	lambda a: '<h2><a id="'+slugify(a[1])+'"></a>'+a[1]+'</h2>',
 		'###':	lambda a: '<h3><a id="'+slugify(a[1])+'"></a>'+a[1]+'</h3>',
-		'-':	lambda a: '<li>'+convert_fractions(a[1])+'</li>',
-		'1.':	lambda a: '<li>'+convert_fractions(a[1])+'</li>',
+		'-':	lambda a: '<li>'+process_line(a[1])+'</li>',
+		'1.':	lambda a: '<li>'+process_line(a[1])+'</li>',
 		'!#':	lambda a: '\n'.join([
 			'<h1>',
 			'<span id="decoration">🙞</span>',
@@ -169,7 +173,7 @@ def process_file(file):
 					elif (split[0] != '1.' and is_ordered_list):
 						is_ordered_list = False
 						steps.append('</ol>')
-					steps.append(switch.get(split[0], lambda a: '<p>'+convert_fractions(" ".join(a))+'</p>')(split))
+					steps.append(switch.get(split[0], lambda a: '<p>'+process_line(" ".join(a))+'</p>')(split))
 		if (is_ordered_list): steps.append('</ol>')
 		if (is_unordered_list): steps.append('</ul>')
 	return [ filename, build_recipe_page(title, tags, steps) ]
