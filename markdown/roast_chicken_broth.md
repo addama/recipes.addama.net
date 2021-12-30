@@ -45,7 +45,7 @@
 
 ## Notes
 
-*Rosemary and garlic are a **go-to** flavor profile*, and is especially flavorful if both the chicken and the broth are flavored this way. Limit extreme flavors like spicy pepper powder/seeds, sweet spices or vegetables, and bitter vegetables or vegetable parts like cucumbers or broccoli. While you should experiment with your flavor profile, be aware of strong flavors that will unbalance or replace others, making the broth less satisfying and complex.
+*Rosemary and garlic are a go-to flavor profile*, and is **especially** flavorful if both the chicken and the broth are flavored this way. Limit extreme flavors like spicy pepper powder/seeds, sweet spices or vegetables, and bitter vegetables or vegetable parts like cucumbers or broccoli. While you should experiment with your flavor profile, be aware of strong flavors that will unbalance or replace others, making the broth less satisfying and complex.
 
 Save edible vegetable scraps in a freezer bag to supplement (but not replace) the vegetable components. Onion and garlic skin, carrot peels, potato eyes are acceptable. Similarly, leftover stock or broth can be added in place of water.
 
