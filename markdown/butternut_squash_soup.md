@@ -1,6 +1,6 @@
 # Butternut Squash Soup
 
-&& soup, vegetarian, vegan, warm, meal
+&tags soup, vegetarian, vegan, warm, meal
 
 ## Ingredients
 

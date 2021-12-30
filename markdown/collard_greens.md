@@ -1,6 +1,6 @@
 # Collard Greens
 
-&& warm, sidedish, vegetarian, vegan
+&tags warm, sidedish, vegetarian, vegan
 
 ## Ingredients
 

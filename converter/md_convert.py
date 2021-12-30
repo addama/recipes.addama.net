@@ -55,7 +55,7 @@ def build_recipe_page(title, tags, steps):
 	html = steps
 	html += [
 		'<div id="tags">',
-		'<span id="tagsLabel">Tags</span>',
+		'<span id="tagsLabel">Tags</span>'
 	]
 
 	for tag in tags:
@@ -86,7 +86,7 @@ def build_index_page():
 		'<h1>',
 		'<span id="decoration">🙞</span>',
 		'<span id="indexTitle">Recipes</span>',
-		'</h1>'
+		'</h1>',
 		'<h2>Tags</h2>',
 		'<div id="indexTagList">'
 	]
@@ -149,11 +149,10 @@ def process_file(file):
 					split[0] = '!#'
 				# Deal with the metadata that doesn't get printed, then
 				# with the printables
-				if (split[0] == '&&' and not len(tags)):
+				if (split[0] == '&tags' and not len(tags)):
 					# Build a uniqued lowercase tags list
 					tags = (list(set(split[1].lower().split(', '))))
 					tags_by_uri[filename] = tags
-					
 					for tag in tags:
 						if tag not in uris_by_tag: uris_by_tag[tag] = []
 						uris_by_tag[tag].append(filename)

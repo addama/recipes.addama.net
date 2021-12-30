@@ -1,6 +1,6 @@
 # Snickerdoodle Cookies
 
-&& dessert, cookie, sweet
+&tags dessert, cookie, sweet
 
 ## Ingredients
 
