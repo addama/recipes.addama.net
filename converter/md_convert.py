@@ -112,9 +112,9 @@ def process_line(line):
 	# Common fractions symbol replacement
 	modified = re.sub('(\d)\/(\d)', r'&frac\1\2;', line)
 	# italics
-	modified = re.sub('[*]{1}(\w+)[*]{1}', r'<em>\1</em>', modified)
+	modified = re.sub('\*{1}(\w+)\*{1}', r'<em>\1</em>', modified)
 	# bold
-	modified = re.sub('[*]{2}(\w+)[*]{2}', r'<strong>\1</strong>', modified)
+	modified = re.sub('\*{2}(\w+)\*{2}', r'<strong>\1</strong>', modified)
 	return modified
 
 def process_file(file):
