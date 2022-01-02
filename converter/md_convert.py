@@ -156,6 +156,9 @@ def process_file(file):
 					for tag in tags:
 						if tag not in uris_by_tag: uris_by_tag[tag] = []
 						uris_by_tag[tag].append(filename)
+				elif (split[0] == '&url'):
+					# Nothing for now, just keeping the URLs in the MD
+					pass
 				else:
 					if (split[0] == '-' and not is_unordered_list): 
 						is_unordered_list = True
