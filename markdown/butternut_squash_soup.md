@@ -1,7 +1,7 @@
 # Butternut Squash Soup
 
 &tags soup, vegetarian, vegan, warm, meal, favorite
-&url https://www.gimmesomeoven.com/slow-cooker-butternut-squash-soup-recipe/
+&source https://www.gimmesomeoven.com/slow-cooker-butternut-squash-soup-recipe/
 
 ## Ingredients
 

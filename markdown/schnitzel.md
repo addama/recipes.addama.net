@@ -1,7 +1,7 @@
 # Schnitzel
 
 &tags warm, meal, german, pork
-&url https://thestayathomechef.com/german-schnitzel-recipe/, https://natashaskitchen.com/pork-schnitzel-recipe/#jump-to-recipe
+&source https://thestayathomechef.com/german-schnitzel-recipe/, https://natashaskitchen.com/pork-schnitzel-recipe/#jump-to-recipe
 
 ## Ingredients
 

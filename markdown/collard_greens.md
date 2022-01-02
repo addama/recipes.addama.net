@@ -1,7 +1,7 @@
 # Collard Greens
 
 &tags warm, sidedish, vegetarian, vegan, favorite
-&url https://www.aforkstale.com/how-to-cook-collard-greens/
+&source https://www.aforkstale.com/how-to-cook-collard-greens/
 
 ## Ingredients
 

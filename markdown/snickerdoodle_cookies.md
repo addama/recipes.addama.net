@@ -1,7 +1,7 @@
 # Snickerdoodle Cookies
 
 &tags dessert, cookie, sweet, favorite
-&url https://www.modernhoney.com/the-best-snickerdoodle-cookie-recipe/
+&source https://www.modernhoney.com/the-best-snickerdoodle-cookie-recipe/
 
 ## Ingredients
 
