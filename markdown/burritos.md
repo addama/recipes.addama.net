@@ -4,7 +4,7 @@
 
 ## Ingredients
 
-- 1 lb 90/10 ground beef, or alternative as desired
+- 1 lb lean ground beef, or alternative as desired
 - 1 can refried beans
 - 1 cup plain Greek yogurt
 - 1/2 white onion
