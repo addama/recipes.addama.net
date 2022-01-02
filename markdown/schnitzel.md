@@ -31,3 +31,7 @@
 1. Pour oil into pan until the bottom is covered and heat to medium high
 1. Dredge chops in each bowl in order, coating entirely with each bowl's content
 1. Fry chops 2-3 at a time for 3-4 minutes, then flip and fry other side for 3-4 minutes until brown or 145 degrees F internal temperature
+
+## Notes
+
+Pork chops can be substituted with chicken breast or veal, ensuring that each is cut and pounded thin.
