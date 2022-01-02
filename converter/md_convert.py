@@ -159,6 +159,9 @@ def process_file(file):
 				elif (split[0] == '&url'):
 					# Nothing for now, just keeping the URLs in the MD
 					pass
+				elif (split[0] == '&book'):
+					# Adding this for potential later use
+					pass
 				else:
 					if (split[0] == '-' and not is_unordered_list): 
 						is_unordered_list = True
