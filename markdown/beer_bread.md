@@ -7,6 +7,7 @@
 - 3 cups self-rising flour or 4 cups buscuit mix
 - 3 tbs sugar
 - 1 can of beer
+- Cooking spray
 
 ## Equipment
 
