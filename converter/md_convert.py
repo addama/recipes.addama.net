@@ -91,8 +91,15 @@ def build_index_page():
 		'<div id="indexTagList">'
 	]
 
+	# Color favorite recipes (used daily) and heritage recipes (written untested from family cookbooks) differently
 	for tag in uris_by_tag:
-		html.append('<a href="./tags/'+tag+'.htm" title="Recipes tagged as: '+tag+'">'+tag+'</a>')
+		class_name = ''
+		if (tag == 'favorite'):
+			class_name = 'favorite'
+		elif (tag == 'bork family'):
+			class_name = 'family'
+
+		html.append('<a href="./tags/'+tag+'.htm" class="'+class_name+'" title="Recipes tagged as: '+tag+'">'+tag+'</a>')
 
 	html += [
 		'</div>',

@@ -137,3 +137,11 @@ li {
 	padding-bottom: 1em;
 	line-height: 1em;
 }
+
+.favorite {
+	color: lightblue;
+}
+
+.family {
+	color: lightseagreen;
+}
