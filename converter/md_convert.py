@@ -122,7 +122,12 @@ def build_index_page():
 
 def process_line(line):
 	# Common fractions symbol replacement
+	def repl(match):
+		uri = re.sub('\s', '_', match.group(1).lower()) + '.md'
+		return '<a href="./'+uri+'">'+match.group(1)+'</a>'
+
 	modified = re.sub('(\d)\/(\d)', r'&frac\1\2;', line)
+	modified = re.sub('\[\[(.*)\]\]', repl, modified)
 	return modified
 
 def process_file(file):

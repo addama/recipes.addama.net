@@ -8,7 +8,7 @@
 - 1 tbs olive oil
 - 1/2 white onion
 - 3-4 cloves garlic
-- 2 cups beef broth, or vegetable broth if vegan, enough to cover at least half the chopped greens
+- 2 cups [[beef broth]], or vegetable broth if vegan, enough to cover at least half the chopped greens
 - 2 bundles of cooking greens
 
 ## Equipment
