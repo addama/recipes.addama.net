@@ -116,8 +116,8 @@ def build_index_page():
 		if (uri in family_uris): class_name = 'family'
 		html.append('<a href=".'+output_dir+uri+'" class="'+class_name+'" title="'+title+'">'+title+'</a>')
 
-	html += [ '</div>' ]
 	html += [
+		'</div>',
 		'<h2>Unit Conversions for the Kitchen</h2>',
 		'<div id="conversionsTray">',
 		'<div class="conversion">',
