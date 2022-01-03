@@ -36,7 +36,7 @@ Ingredients are for 2 people, assuming 3 separate meals. Multiply by 3 to produc
 ## Instructions
 
 1. Slice cucumber into thin slices, placing half on each plate
-1. Slice, separate, and deseed each bell pepper lobe, removing any pith, then slice each lobe in two or three depending on size, ensuring an even number
+1. Slice, separate, and deseed each bell pepper lobe, removing any pith, then slice each lobe in half, ensuring an even number
 1. Stack bell pepper slices in an even pile on each plate
 1. Optionally season vegetables with salt
 1. Wipe off knife and cutting board
@@ -50,6 +50,8 @@ Ingredients are for 2 people, assuming 3 separate meals. Multiply by 3 to produc
 ## Notes
 
 Seasonal fruit can be any fruit that is readily available and in-season, such as apple, strawberry, blackberry, blueberry, watermelon (in small cubes), etc. If the cucumber and bell pepper are particularly large, you may wish to omit the fruit, because the meal might be too large otherwise.
+
+Bell peppers generally have either 3 or 4 lobes, so for this recipe you will likely end up with either 6 or 8 slices per plate. Take this into account when proportioning and plating.
 
 Choose cheeses and meats that have strong and varied flavors - don't be afraid to experiment or splurge on an expensive variety, because the rest of the meal is very inexpensive. Avoid high-fat meats that will unbalance the meal and give unpleasant side-effects.
 
