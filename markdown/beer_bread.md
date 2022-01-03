@@ -1,6 +1,6 @@
 # Beer Bread
 
-&tags bork family, bread, sidedish
+&tags bork family, bread, sidedish, vegetarian, vegan
 
 ## Ingredients
 

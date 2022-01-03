@@ -1,6 +1,6 @@
 # M&M Cookies
 
-&tags dessert, cookie
+&tags dessert, cookie, vegetarian
 &source https://www.iheartnaptime.net/best-mm-cookies/
 
 ## Ingredients

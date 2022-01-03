@@ -1,6 +1,6 @@
 # Kit Kat Bars
 
-&tags bork family, dessert, cool, chocolate
+&tags bork family, dessert, cool, chocolate, vegetarian
 
 ## Ingredients
 

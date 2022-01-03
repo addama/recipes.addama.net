@@ -1,6 +1,6 @@
 # Cheddar Corn Bread
 
-&tags bork family, bread, sidedish
+&tags bork family, bread, sidedish, vegetarian
 
 ## Ingredients
 

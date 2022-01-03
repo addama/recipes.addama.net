@@ -1,6 +1,6 @@
 # Devonshire Cream
 
-&tags bork family, dessert, component, cool
+&tags bork family, dessert, component, cool, vegetarian
 
 ## Ingredients
 

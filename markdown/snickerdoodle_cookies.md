@@ -1,6 +1,6 @@
 # Snickerdoodle Cookies
 
-&tags dessert, cookie
+&tags dessert, cookie, vegetarian
 &source https://www.modernhoney.com/the-best-snickerdoodle-cookie-recipe/
 
 ## Ingredients

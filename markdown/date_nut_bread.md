@@ -1,6 +1,6 @@
 # Date Nut Bread
 
-&tags bork family, bread, sidedish, incomplete
+&tags bork family, bread, sidedish, incomplete, vegetarian
 
 ## Notes
 

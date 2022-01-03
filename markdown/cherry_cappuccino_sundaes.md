@@ -1,6 +1,6 @@
 # Cherry Cappuccino Sundaes
 
-&tags bork family, dessert, cool, chocolate
+&tags bork family, dessert, cool, chocolate, vegetarian
 
 ## Ingredients
 

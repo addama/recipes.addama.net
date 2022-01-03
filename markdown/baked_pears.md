@@ -1,6 +1,6 @@
 # Baked Pears
 
-&tags bork family, dessert, cool
+&tags bork family, dessert, cool, vegetarian, vegan
 
 ## Ingredients
 
