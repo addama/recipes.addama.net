@@ -1,6 +1,6 @@
 # M&M Cookies
 
-&tags dessert, cookie, sweet
+&tags dessert, cookie
 &source https://www.iheartnaptime.net/best-mm-cookies/
 
 ## Ingredients

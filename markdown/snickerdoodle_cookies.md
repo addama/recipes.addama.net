@@ -1,6 +1,6 @@
 # Snickerdoodle Cookies
 
-&tags dessert, cookie, sweet
+&tags dessert, cookie
 &source https://www.modernhoney.com/the-best-snickerdoodle-cookie-recipe/
 
 ## Ingredients
