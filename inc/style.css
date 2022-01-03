@@ -122,7 +122,10 @@ h1#tagTitle {
 #indexRecipeList a, #indexTagList a {
 	text-align: center;
 	line-height: 1em;
-	padding-bottom: 1em;
+	background-color: rgba(30,30,30,0.75);
+	margin-bottom: 1em;
+	border-radius: 5px;
+	padding: 0 0.1em;
 }
 
 a, a:visited {
@@ -132,7 +135,8 @@ a, a:visited {
 
 a:hover, a:active {
 	color: white;
-	text-decoration: underline;
+	/* text-decoration: underline; */
+	outline: 1px solid #666;
 }
 
 footer {
