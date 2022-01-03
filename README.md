@@ -25,6 +25,12 @@ The recipes are written in Markdown format, but only some semantic elements are 
 * `&tags`
   * Proprietary "tags" meta element
   * Should contain a commaspace-separated list of tags that apply to the recipe, e.g. `&tags tag1, tag2, tag3`
+* `&source`
+  * Proprietary "source" meta element
+  * Used to keep track of the URL, book, etc, that the recipe came from
+* `&pre`
+  * Proprietary "preformatted text" meta element
+  * Turns on and off preformatted text
   
 Ensure that there is a space between the markdown element and the content, e.g. `# Title`, not `#Title`
 
