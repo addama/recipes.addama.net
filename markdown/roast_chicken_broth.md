@@ -49,4 +49,4 @@ Rosemary and garlic are a go-to flavor profile, and is especially flavorful if b
 
 Save edible vegetable scraps in a freezer bag to supplement (but not replace) the vegetable components. Onion and garlic skin, carrot peels, potato eyes are acceptable. Similarly, leftover stock or broth can be added in place of water.
 
-If the chicken came with gizzards or offal, these should be used in the stock to add more flavor complexity and low notes. Collagen and other necessary nutrients by including chicken's feet, declawed.
+If the chicken came with gizzards or offal, these should be used in the stock to add more flavor complexity and low notes. Collagen and other necessary nutrients can be enhanced by including chicken's feet, declawed.

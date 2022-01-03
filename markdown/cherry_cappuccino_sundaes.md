@@ -40,6 +40,6 @@ Cherry Cappuccino
 In a blender, combine first
 four ingredients, Cover and
 blend until smothe (sic).
-  Served pver ice cream.
+  Served over ice cream.
   Sprinkle with chocolate
 &pre
