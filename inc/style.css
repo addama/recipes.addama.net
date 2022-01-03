@@ -164,3 +164,16 @@ li {
 .conversion ul li {
 	line-height: 0.5em;
 }
+
+pre {
+	font-size: smaller;
+	line-height: default;
+	padding-left: 2em;
+}
+
+code {
+	background-color: #999;
+	color: #222;
+	border-radius: 5px;
+	padding: 0 0.1em;
+}

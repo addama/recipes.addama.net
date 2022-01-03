@@ -174,6 +174,7 @@ def process_file(file):
 	title = default_title
 	is_unordered_list = False
 	is_ordered_list = False
+	is_pre = False
 	tags = []
 	steps = []
 
@@ -196,7 +197,7 @@ def process_file(file):
 			# Separate the markdown from the content
 			split = line.rstrip().split(' ', 1)
 			# Ignore empty lines
-			if (len(split) > 1):
+			if (len(split) > 1 and not is_pre):
 				# Use the first H1 as the document title
 				# Modify the command, and pass through to the next if
 				if (split[0] == '#' and title == default_title):
@@ -231,6 +232,17 @@ def process_file(file):
 						is_ordered_list = False
 						steps.append('</ol>')
 					steps.append(switch.get(split[0], lambda a: '<p>'+process_line(" ".join(a))+'</p>')(split))
+			else:
+				if (split[0] == '&pre'):
+					print('pre')
+					if (not is_pre):
+						is_pre = True
+						steps.append('<pre>')
+					else:
+						is_pre = False
+						steps.append('</pre>')
+				else:
+					steps.append(" ".join(split))
 		if (is_ordered_list): steps.append('</ol>')
 		if (is_unordered_list): steps.append('</ul>')
 	return [ filename, build_recipe_page(title, tags, steps) ]
