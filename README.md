@@ -6,8 +6,8 @@ Collection of recipes used in my household
 The creation of html files is controlled by `md_convert.py` which should be run any time a recipe is changed or added. 
 
 Run `md_convert.py` from the base directory with `python3 converter/md_convert.py`. You do not have to delete existing html files, but in case they are out of date or incompatible, here are the files generated:
-* An html version of every `/markdown/*.md` file in `/recipes`
-* An html page for every tag in `/tags`
+* One `/recipes/*.htm` for every `/markdown/*.md`
+* One `/tags/*.htm` for every unique tag
 * `index.htm` in the base directory
 
 ## Markdown Recipe Format
