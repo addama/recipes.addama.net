@@ -1,4 +1,4 @@
-# recipes.addama.net
+# [recipes.addama.net](recipes.addama.net
 Collection of recipes used in my household
 
 ## md_convert.py Script
