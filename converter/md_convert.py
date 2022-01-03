@@ -17,6 +17,7 @@ tags_by_uri = {}
 titles_by_uri = {}
 uris_by_tag = {}
 favorite_uris = []
+family_uris = []
 
 slugify = lambda a: '_'.join(a.lower().split(' '))
 
@@ -111,8 +112,8 @@ def build_index_page():
 	for uri in titles_by_uri:
 		title = titles_by_uri[uri]
 		class_name = ''
-		if (uri in favorite_uris):
-			class_name = 'favorite'
+		if (uri in favorite_uris): class_name = 'favorite'
+		if (uri in family_uris): class_name = 'family'
 		html.append('<a href=".'+output_dir+uri+'" class="'+class_name+'" title="'+title+'">'+title+'</a>')
 
 	html += [ '</div>' ]
@@ -166,6 +167,7 @@ def process_file(file):
 					tags_by_uri[filename] = tags
 					for tag in tags:
 						if (tag == 'favorite'): favorite_uris.append(filename)
+						if (tag == 'bork family'): family_uris.append(filename)
 						if tag not in uris_by_tag: uris_by_tag[tag] = []
 						uris_by_tag[tag].append(filename)
 				elif (split[0] == '&source'):
@@ -196,13 +198,13 @@ def write_file(filename, html):
 # Process the markdown files
 for file in files:
 	filename, html = process_file(file)
-	print(filename, len(html))
+	print('recipe', filename, len(html))
 	write_file('.'+output_dir+filename, html)
 
 # Build the tag pages
 for tag in uris_by_tag:
 	html = build_tag_page(tag, uris_by_tag[tag])
-	print(tag, len(html))
+	print('tag', tag, len(html))
 	write_file('.'+tags_dir+tag+'.htm', html)
 
 # Build the index page
