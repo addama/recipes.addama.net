@@ -139,9 +139,9 @@ li {
 }
 
 .favorite {
-	color: lightblue;
+	color: lightblue !important;
 }
 
 .family {
-	color: lightseagreen;
+	color: lightseagreen !important;
 }
