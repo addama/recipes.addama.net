@@ -121,6 +121,8 @@ h1#tagTitle {
 
 #indexRecipeList a, #indexTagList a {
 	text-align: center;
+	line-height: 1em;
+	padding-bottom: 1em;
 }
 
 a, a:visited {
