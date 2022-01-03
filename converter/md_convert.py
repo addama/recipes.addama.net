@@ -117,6 +117,45 @@ def build_index_page():
 		html.append('<a href=".'+output_dir+uri+'" class="'+class_name+'" title="'+title+'">'+title+'</a>')
 
 	html += [ '</div>' ]
+	html += [
+		'<h2>Unit Conversions for the Kitchen</h2>',
+		'<div id="conversionsTray">',
+		'<div class="conversion">',
+		'<p><strong>1 tsp</strong> is:</p>',
+		'<ul>',
+		'<li>&frac13; tbs</li>',
+		'<li>&frac16; fl.oz.</li>',
+		'<li>5 ml</li>',
+		'<li><sup>1</sup>&frasl;<sub>48</sub> cup</li>',
+		'</ul>',
+		'</div>',
+		'<div class="conversion">',
+		'<p><strong>1 tbs</strong> is:</p>',
+		'<ul>',
+		'<li>3 tsp</li>',
+		'<li>&frac12; fl.oz.</li>',
+		'<li>15 ml</li>',
+		'<li><sup>1</sup>&frasl;<sub>16</sub> cup</li>',
+		'</ul>',
+		'</div>',
+		'<div class="conversion">',
+		'<p><strong>1 cup</strong> is:</p>',
+		'<ul>',
+		'<li>48 tsp</li>',
+		'<li>16 tbs</li>',
+		'<li>8 fl.oz.</li>',
+		'<li>240 ml</li>',
+		'</ul>',
+		'</div>',
+		'<div class="conversion">',
+		'<p><strong>1 lb</strong> is:</p>',
+		'<ul>',
+		'<li>454 g</li>',
+		'<li>16 oz</li>',
+		'</ul>',
+		'</div>',
+		'</div>'
+	]
 
 	return build_base_page('Recipes', html, True)
 

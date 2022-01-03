@@ -98,7 +98,7 @@ h1#tagTitle {
 	text-align: center;
 }
 
-#indexRecipeList, #indexTagList {
+#indexRecipeList, #indexTagList, #conversionsTray {
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
@@ -109,11 +109,17 @@ h1#tagTitle {
 
 #indexRecipeList a {
 	flex-basis: 32%;
-	text-align: center;
 }
 
 #indexTagList a {
+	font-size: smaller;
+}
+
+#indexTagList a, #conversionsTray .conversion {
 	flex-basis: 18%;
+}
+
+#indexRecipeList a, #indexTagList a {
 	text-align: center;
 }
 
@@ -144,4 +150,17 @@ li {
 
 .family {
 	color: lightseagreen !important;
+}
+
+.conversion {
+	padding: 1em;
+	font-size: smaller;
+}
+
+.conversion p {
+	margin-top: 0;
+}
+
+.conversion ul li {
+	line-height: 0.5em;
 }
