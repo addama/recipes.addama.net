@@ -16,6 +16,7 @@ title_suffix = ' | addama.net'
 tags_by_uri = {}
 titles_by_uri = {}
 uris_by_tag = {}
+favorite_uris = []
 
 slugify = lambda a: '_'.join(a.lower().split(' '))
 
@@ -109,7 +110,10 @@ def build_index_page():
 
 	for uri in titles_by_uri:
 		title = titles_by_uri[uri]
-		html.append('<a href=".'+output_dir+uri+'" title="'+title+'">'+title+'</a>')
+		class_name = ''
+		if (uri in favorite_uris):
+			class_name = 'favorite'
+		html.append('<a href=".'+output_dir+uri+'" class="'+class_name+'" title="'+title+'">'+title+'</a>')
 
 	html += [ '</div>' ]
 
@@ -161,6 +165,7 @@ def process_file(file):
 					tags = (list(set(split[1].lower().split(', '))))
 					tags_by_uri[filename] = tags
 					for tag in tags:
+						if (tag == 'favorite'): favorite_uris.append(filename)
 						if tag not in uris_by_tag: uris_by_tag[tag] = []
 						uris_by_tag[tag].append(filename)
 				elif (split[0] == '&source'):
