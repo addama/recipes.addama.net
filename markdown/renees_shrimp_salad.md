@@ -26,8 +26,8 @@
 
 ## Instructions
 
-- Add all ingredients in mixing bowl, then mix thoroughly
-- Refrigerate until served
+1. Add all ingredients in mixing bowl, then mix thoroughly
+1. Refrigerate until served
 
 ## Notes
 
