@@ -270,12 +270,11 @@ def write_file(filename, html):
 		f.write('\n'.join(html))
 
 if (args.clear):
-# Delete output files before regenerating if -c flag is given
+	# Delete output files before regenerating if -c flag is given
 	log('Clearing output files (-c)...')
 	deletable = glob.glob('.'+output_dir+'*.htm')
 	deletable += glob.glob('.'+tags_dir+'*.htm')
 	deletable.append('./index.htm')
-	needs_regen = True
 	for d in deletable:
 		log('Removing '+d)
 		if (exists(d)): remove(d)
@@ -284,9 +283,9 @@ if (args.clear):
 for file in files:
 	output_filename = '.'+output_dir+splitext(basename(file))[0]+'.htm'
 	# Check modified time and flags to know if it's necessary to rebuild
-	if (args.force or not exists(output_filename) or getmtime(file) > getmtime(output_filename)):
+	html = process_file(file, output_filename)
+	if (needs_regen or not exists(output_filename) or getmtime(file) > getmtime(output_filename)):
 		regen_tags = True
-		html = process_file(file, output_filename)
 		log('Generating recipe', file, '=>', output_filename, len(html))
 		write_file(output_filename, html)
 
