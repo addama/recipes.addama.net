@@ -1,7 +1,7 @@
 import sys
 import glob
 import re
-from os.path import basename, splitext, getmtime
+from os.path import basename, splitext, getmtime, exists
 from datetime import datetime
 
 run_date = datetime.now()
@@ -9,6 +9,7 @@ input_dir = '/markdown/'
 output_dir = '/recipes/'
 tags_dir = '/tags/'
 css_file = '/inc/style.css'
+needs_regen = False
 # files = glob.glob(f'.{input_dir}*.md') # 3.6+ string formatting
 files = glob.glob('.'+input_dir+'*.md')
 default_title = 'Recipe'
@@ -254,21 +255,24 @@ def write_file(filename, html):
 
 # Process the markdown files
 for file in files:
-	input_filename = splitext(basename(file))[0]
-	output_filename = '.'+output_dir+input_filename+'.htm'
+	output_filename = '.'+output_dir+splitext(basename(file))[0]+'.htm'
 	# Check modified time to know if it's necessary to rebuild
-	# if (getmtime())
-	html = process_file(file, output_filename)
-	print('recipe', input_filename+'.md', output_filename, len(html))
-	write_file(output_filename, html)
+	if (not exists(output_filename) or getmtime(file) > getmtime(output_filename)):
+		needs_regen = True
+		html = process_file(file, output_filename)
+		print('recipe', file, output_filename, len(html))
+		write_file(output_filename, html)
 
-# Build the tag pages
-for tag in uris_by_tag:
-	html = build_tag_page(tag, uris_by_tag[tag])
-	print('tag', tag, len(html))
-	write_file('.'+tags_dir+tag+'.htm', html)
+if (needs_regen):
+	# Build the tag pages
+	for tag in uris_by_tag:
+		html = build_tag_page(tag, uris_by_tag[tag])
+		print('tag', tag, len(html))
+		write_file('.'+tags_dir+tag+'.htm', html)
 
-# Build the index page
-html = build_index_page()
-print('index.htm', len(html))
-write_file('./index.htm', html)
+	# Build the index page
+	html = build_index_page()
+	print('index.htm', len(html))
+	write_file('./index.htm', html)
+else:
+	print('No changes detected!')
