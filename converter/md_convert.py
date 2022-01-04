@@ -1,7 +1,7 @@
 import sys
 import glob
 import re
-from os.path import basename, splitext
+from os.path import basename, splitext, getmtime
 from datetime import datetime
 
 run_date = datetime.now()
@@ -169,8 +169,7 @@ def process_line(line):
 	modified = re.sub('\[\[(.*)\]\]', repl, modified)
 	return modified
 
-def process_file(file):
-	filename = splitext(basename(file))[0]+'.htm'
+def process_file(file, filename):
 	title = default_title
 	is_unordered_list = False
 	is_ordered_list = False
@@ -233,19 +232,21 @@ def process_file(file):
 						steps.append('</ol>')
 					steps.append(switch.get(split[0], lambda a: '<p>'+process_line(" ".join(a))+'</p>')(split))
 			else:
-				if (split[0] == '&pre'):
-					print('pre')
-					if (not is_pre):
+				if (not is_pre):
+					if (split[0] == '&pre'):
 						is_pre = True
 						steps.append('<pre>')
 					else:
+						pass
+				else:
+					if (split[0] == '&pre'):
 						is_pre = False
 						steps.append('</pre>')
-				else:
-					steps.append(" ".join(split))
+					else:
+						steps.append(" ".join(split))
 		if (is_ordered_list): steps.append('</ol>')
 		if (is_unordered_list): steps.append('</ul>')
-	return [ filename, build_recipe_page(title, tags, steps) ]
+	return build_recipe_page(title, tags, steps)
 
 def write_file(filename, html):
 	with open(filename, 'w') as f:
@@ -253,9 +254,13 @@ def write_file(filename, html):
 
 # Process the markdown files
 for file in files:
-	filename, html = process_file(file)
-	print('recipe', filename, len(html))
-	write_file('.'+output_dir+filename, html)
+	input_filename = splitext(basename(file))[0]
+	output_filename = '.'+output_dir+input_filename+'.htm'
+	# Check modified time to know if it's necessary to rebuild
+	# if (getmtime())
+	html = process_file(file, output_filename)
+	print('recipe', input_filename+'.md', output_filename, len(html))
+	write_file(output_filename, html)
 
 # Build the tag pages
 for tag in uris_by_tag:
