@@ -43,7 +43,7 @@ The recipes are written in Markdown format, but only some semantic elements are 
   * Numbered list item
   * You only need to use `1.` for every list item; do not number your list yourself!
 * `[[internal link]]`
-  * Converted into an internal link, i.e. to another recipe page. The text between the `[[` and `]]` should be as close to the `/recipes/*.htm` filename as you can, **excluding the extension**, although it will replace spaces with underscores and convert to lowercase for you.
+  * Converted into an internal link, i.e. to another recipe page. The text between the `[[` and `]]` should be the `/recipes/(*).htm` filename without the directory or file extension, like `butternut_squash_soup`. It will replace spaces with underscores and convert to lowercase for you if you're lazy.
 * `&tags`
   * Proprietary "tags" meta element
   * Should contain a commaspace-separated list of tags that apply to the recipe, e.g. `&tags tag1, tag2, tag3`
