@@ -92,7 +92,7 @@ def build_tag_page(tag, uris):
 	]
 
 	for uri in uris:
-		html.append('<li><a href="..'+output_dir+uri+'">'+titles_by_uri[uri]+'</a></li>')
+		html.append('<li><a href="..'+uri+'">'+titles_by_uri[uri]+'</a></li>')
 
 	html += [ '</ul>' ]
 
