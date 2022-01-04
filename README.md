@@ -19,7 +19,7 @@ The script outputs a line for every html file that it generates, which includes 
 
 ### Command line flags
 
-There are two command line flags available:
+There are several command line flags available:
 
 * `-f`, `--force`
   * Forces the regeneration of output files even if no change warrants regeneration
