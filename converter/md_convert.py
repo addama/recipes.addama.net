@@ -18,6 +18,7 @@ output_dir = '/recipes/'
 tags_dir = '/tags/'
 css_file = '/inc/style.css'
 needs_regen = args.force or args.clear or False
+regen_tags = False
 # files = glob.glob(f'.{input_dir}*.md') # 3.6+ string formatting
 files = glob.glob('.'+input_dir+'*.md')
 default_title = 'Recipe'
@@ -31,6 +32,7 @@ family_uris = []
 slugify = lambda a: '_'.join(a.lower().split(' '))
 
 def log(*msg):
+	# Suppress console output if -s
 	if (not args.silent):
 		print(' '.join(map(str, msg)))
 
@@ -273,6 +275,7 @@ if (args.clear):
 	deletable = glob.glob('.'+output_dir+'*.htm')
 	deletable += glob.glob('.'+tags_dir+'*.htm')
 	deletable.append('./index.htm')
+	needs_regen = True
 	for d in deletable:
 		log('Removing '+d)
 		if (exists(d)): remove(d)
@@ -281,15 +284,13 @@ if (args.clear):
 for file in files:
 	output_filename = '.'+output_dir+splitext(basename(file))[0]+'.htm'
 	# Check modified time and flags to know if it's necessary to rebuild
-	if (not exists(output_filename) or getmtime(file) > getmtime(output_filename)):
-		needs_regen = True
-
-	if (needs_regen):
+	if (args.force or not exists(output_filename) or getmtime(file) > getmtime(output_filename)):
+		regen_tags = True
 		html = process_file(file, output_filename)
 		log('Generating recipe', file, '=>', output_filename, len(html))
 		write_file(output_filename, html)
 
-if (needs_regen):
+if (regen_tags or needs_regen):
 	# Build the tag pages
 	for tag in uris_by_tag:
 		html = build_tag_page(tag, uris_by_tag[tag])
