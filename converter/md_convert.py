@@ -196,7 +196,7 @@ def process_file(file, filename):
 		for line in f:
 			# Separate the markdown from the content
 			split = line.rstrip().split(' ', 1)
-			# Ignore empty lines
+			# pre and non-pre lines are handled differently
 			if (len(split) > 1 and not is_pre):
 				# Use the first H1 as the document title
 				# Modify the command, and pass through to the next if
@@ -238,12 +238,14 @@ def process_file(file, filename):
 						is_pre = True
 						steps.append('<pre>')
 					else:
+						# Don't write blank lines unless in pre
 						pass
 				else:
 					if (split[0] == '&pre'):
 						is_pre = False
 						steps.append('</pre>')
 					else:
+						# Write all lines as-is while in pre
 						steps.append(" ".join(split))
 		if (is_ordered_list): steps.append('</ol>')
 		if (is_unordered_list): steps.append('</ul>')
