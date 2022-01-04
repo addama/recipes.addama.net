@@ -11,7 +11,7 @@ Run `md_convert.py` from the base directory with `python3 converter/md_convert.p
 * One `/tags/*.htm` for every unique tag
 * `index.htm` in the base directory
 
-The script will only generate output files if the markdown file modified date is later than the output file modified date. This can be circumvented with the `-f` or `-c` flags (see below).
+The script will only generate output files if the markdown file modified date is later than the output file modified date, or if the output file doesn't exist. This can be circumvented with the `-f` or `-c` flags (see below).
 
 ### Output
 
@@ -28,7 +28,7 @@ There are several command line flags available:
 * `-s`, `--silent`
   * Suppresses console messages
 
-As `-c` forces regeneration, it supercedes `-f`, though there's no harm in running `-f -c` - it's just redundant.
+As `-c` forces regeneration by virtue of removing the output files, it supercedes `-f`, though there's no harm in running `-f -c` - it's just redundant.
 
 ## Markdown Recipe Format
 
