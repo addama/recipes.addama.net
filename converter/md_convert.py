@@ -1,15 +1,20 @@
 import sys
 import glob
 import re
+import argparse
 from os.path import basename, splitext, getmtime, exists
 from datetime import datetime
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-f', '--force', help='Force the regeneration of all output files', action='store_true')
+args = parser.parse_args()
 
 run_date = datetime.now()
 input_dir = '/markdown/'
 output_dir = '/recipes/'
 tags_dir = '/tags/'
 css_file = '/inc/style.css'
-needs_regen = False
+needs_regen = args.force or False
 # files = glob.glob(f'.{input_dir}*.md') # 3.6+ string formatting
 files = glob.glob('.'+input_dir+'*.md')
 default_title = 'Recipe'
@@ -115,7 +120,7 @@ def build_index_page():
 		class_name = ''
 		if (uri in favorite_uris): class_name = 'favorite'
 		if (uri in family_uris): class_name = 'family'
-		html.append('<a href=".'+output_dir+uri+'" class="'+class_name+'" title="'+title+'">'+title+'</a>')
+		html.append('<a href=".'+uri+'" class="'+class_name+'" title="'+title+'">'+title+'</a>')
 
 	html += [
 		'</div>',
@@ -259,7 +264,7 @@ def write_file(filename, html):
 for file in files:
 	output_filename = '.'+output_dir+splitext(basename(file))[0]+'.htm'
 	# Check modified time to know if it's necessary to rebuild
-	if (not exists(output_filename) or getmtime(file) > getmtime(output_filename)):
+	if (not exists(output_filename) or getmtime(file) > getmtime(output_filename) or needs_regen):
 		needs_regen = True
 		html = process_file(file, output_filename)
 		print('recipe', file, output_filename, len(html))
