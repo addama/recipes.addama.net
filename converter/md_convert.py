@@ -2,11 +2,13 @@ import sys
 import glob
 import re
 import argparse
+from os import remove
 from os.path import basename, splitext, getmtime, exists
 from datetime import datetime
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-f', '--force', help='Force the regeneration of all output files', action='store_true')
+parser.add_argument('-c', '--clear', help='Clear all output files before regenerating', action='store_true')
 args = parser.parse_args()
 
 run_date = datetime.now()
@@ -14,7 +16,7 @@ input_dir = '/markdown/'
 output_dir = '/recipes/'
 tags_dir = '/tags/'
 css_file = '/inc/style.css'
-needs_regen = args.force or False
+needs_regen = args.force or args.clear or False
 # files = glob.glob(f'.{input_dir}*.md') # 3.6+ string formatting
 files = glob.glob('.'+input_dir+'*.md')
 default_title = 'Recipe'
@@ -260,6 +262,16 @@ def write_file(filename, html):
 	with open(filename, 'w') as f:
 		f.write('\n'.join(html))
 
+if (args.clear):
+# Delete output files before regenerating if -r flag is given
+	print('Clearing output files (-r)...')
+	deletable = glob.glob('.'+output_dir+'*.htm')
+	deletable += glob.glob('.'+tags_dir+'*.htm')
+	deletable.append('./index.htm')
+	for d in deletable:
+		print('Removing '+d)
+		if (exists(d)): remove(d)
+
 # Process the markdown files
 for file in files:
 	output_filename = '.'+output_dir+splitext(basename(file))[0]+'.htm'
@@ -267,14 +279,14 @@ for file in files:
 	if (not exists(output_filename) or getmtime(file) > getmtime(output_filename) or needs_regen):
 		needs_regen = True
 		html = process_file(file, output_filename)
-		print('recipe', file, output_filename, len(html))
+		print('Generating recipe', file, '=>', output_filename, len(html))
 		write_file(output_filename, html)
 
 if (needs_regen):
 	# Build the tag pages
 	for tag in uris_by_tag:
 		html = build_tag_page(tag, uris_by_tag[tag])
-		print('tag', tag, len(html))
+		print('Generating tag', tag, '=>', tag, len(html))
 		write_file('.'+tags_dir+tag+'.htm', html)
 
 	# Build the index page
