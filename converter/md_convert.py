@@ -9,6 +9,7 @@ from datetime import datetime
 parser = argparse.ArgumentParser()
 parser.add_argument('-f', '--force', help='Force the regeneration of all output files', action='store_true')
 parser.add_argument('-c', '--clear', help='Clear all output files before regenerating', action='store_true')
+parser.add_argument('-s', '--silent', help='Suppresses output messages', action='store_true')
 args = parser.parse_args()
 
 run_date = datetime.now()
@@ -28,6 +29,10 @@ favorite_uris = []
 family_uris = []
 
 slugify = lambda a: '_'.join(a.lower().split(' '))
+
+def log(*msg):
+	if (not args.silent):
+		print(' '.join(map(str, msg)))
 
 def build_base_page(title, content, isIndex=False):
 	css_location = '.' if isIndex else '..'
@@ -263,35 +268,37 @@ def write_file(filename, html):
 		f.write('\n'.join(html))
 
 if (args.clear):
-# Delete output files before regenerating if -r flag is given
-	print('Clearing output files (-r)...')
+# Delete output files before regenerating if -c flag is given
+	log('Clearing output files (-c)...')
 	deletable = glob.glob('.'+output_dir+'*.htm')
 	deletable += glob.glob('.'+tags_dir+'*.htm')
 	deletable.append('./index.htm')
 	for d in deletable:
-		print('Removing '+d)
+		log('Removing '+d)
 		if (exists(d)): remove(d)
 
 # Process the markdown files
 for file in files:
 	output_filename = '.'+output_dir+splitext(basename(file))[0]+'.htm'
-	# Check modified time to know if it's necessary to rebuild
-	if (not exists(output_filename) or getmtime(file) > getmtime(output_filename) or needs_regen):
+	# Check modified time and flags to know if it's necessary to rebuild
+	if (not exists(output_filename) or getmtime(file) > getmtime(output_filename)):
 		needs_regen = True
+
+	if (needs_regen):
 		html = process_file(file, output_filename)
-		print('Generating recipe', file, '=>', output_filename, len(html))
+		log('Generating recipe', file, '=>', output_filename, len(html))
 		write_file(output_filename, html)
 
 if (needs_regen):
 	# Build the tag pages
 	for tag in uris_by_tag:
 		html = build_tag_page(tag, uris_by_tag[tag])
-		print('Generating tag', tag, '=>', tag, len(html))
+		log('Generating tag', tag, len(html))
 		write_file('.'+tags_dir+tag+'.htm', html)
 
 	# Build the index page
 	html = build_index_page()
-	print('index.htm', len(html))
+	log('index.htm', len(html))
 	write_file('./index.htm', html)
 else:
-	print('No changes detected!')
+	log('No changes detected!')
