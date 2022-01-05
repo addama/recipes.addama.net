@@ -1,6 +1,6 @@
 # Seven Layer Bars
 
-&tags bork family, dessert, chocolate
+&tags bork family, dessert, chocolate, incomplete
 
 ## Ingredients
 
